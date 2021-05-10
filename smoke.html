@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width,inital-scale=1.0">
+    <meta charset="UTF-8">
+    <title>wyz-test</title>
+    <link rel="stylesheet" href="smoke.css">
+</head>
+<body>
+<section>
+    <p class="text">"hey! u still love him?""no,i love u""well..what a shame."
+    </p>
+</section>
+</body>
+<script>
+    const text=document.querySelector('.text');
+    text.innerHTML=text.textContent.replace(/\S/g,"<span>$&</span>")
+
+    let goBackTime=2;
+
+    const letters = document.querySelectorAll("span");
+    for (let i = 0; i < letters.length; i++) {
+        letters[i].addEventListener('mouseover',function(){
+            letters[i].classList.add('active')
+            letters[i].classList.add('active'+i)
+            setTimeout(()=>{
+                let letter = document.querySelector('.active'+i)
+                letter.classList.remove("active");
+                letter.classList.add("show");
+            },goBackTime*1000)
+        })
+    }
+</script>
+</html>
